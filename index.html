@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#16130f">
+<title>Кухня роликов</title>
+<link rel="icon" href="data:,">
+<link rel="preload" href="f/dirt.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:Dirt;src:url(f/dirt.woff2) format("woff2");font-display:swap}
+@font-face{font-family:Onest;src:url(f/onest.woff2) format("woff2");font-weight:100 900;font-display:swap}
+@font-face{font-family:Hand;src:url(f/caveat.woff2) format("woff2");font-display:swap}
+@font-face{font-family:Osw;src:url(f/oswald.woff2) format("woff2");font-display:swap}
+:root{
+  --bordo:#812022; --bordo-hi:#a02a2c; --bone:#efe6d2; --bone-dim:#b9ad95; --ink:#111;
+  --wet:#16130f; --wet-2:#221d17; --rust:#6b3a22; --botya:#f2c46b; --tape:#2f6fe0;
+  --gut:16px; --col:720px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;overflow-x:clip}
+body{background:var(--wet);color:var(--bone);font:400 17px/1.6 Onest,system-ui,sans-serif;overflow-x:hidden;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .45 0 0 0 0 .4 0 0 0 .18 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+img{display:block;max-width:100%;height:auto}
+a{color:var(--botya);text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:3px solid var(--botya);outline-offset:3px}
+.wrap{max-width:calc(var(--col) + 2*var(--gut));margin:0 auto;padding:0 var(--gut)}
+.wide{max-width:1100px;margin:0 auto;padding:0 var(--gut)}
+section.wrap{padding-top:76px;padding-bottom:8px}
+h2{font:400 clamp(34px,8.5vw,56px)/1 Dirt,Impact,sans-serif;color:var(--bone);margin-bottom:18px;letter-spacing:.005em}
+h3{font:600 20px/1.3 Onest,sans-serif;margin:0 0 6px;color:var(--bone)}
+p+p{margin-top:12px}
+.muted{color:var(--bone-dim)}
+.lead{font-size:19px;line-height:1.55;max-width:34em}
+
+/* верхняя строка */
+.top{display:flex;justify-content:space-between;align-items:center;padding:14px var(--gut);font:400 15px/1 Osw,sans-serif;letter-spacing:.06em;color:var(--bone-dim)}
+.top b{color:var(--bone);font-weight:400}
+.top a{color:var(--bone-dim);text-decoration:none;border:1px solid #4a4036;padding:7px 10px}
+
+/* герой */
+.wrap.hero{position:relative;padding-top:8px;padding-bottom:24px}
+.hero-pic{position:relative;border:10px solid var(--bone);border-bottom-width:12px;transform:rotate(-.8deg);box-shadow:0 30px 50px -24px #000;background:var(--bone)}
+.hero-pic img{width:100%;aspect-ratio:1400/560;object-fit:cover;object-position:30% 50%}
+.nail{position:absolute;width:12px;height:12px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#c9c9c9,#4a4a4a 60%,#222);box-shadow:1px 2px 2px #0009;z-index:2}
+.n1{top:-7px;left:-7px}.n2{top:-7px;right:-7px}.n3{bottom:-8px;left:-7px}.n4{bottom:-8px;right:-7px}
+.strip{position:relative;margin:-26px 0 0 -6px;display:inline-block;background:var(--bordo);color:var(--bone);padding:14px 20px 12px 18px;transform:rotate(-2deg);z-index:3;
+  clip-path:polygon(0 6%,4% 0,30% 5%,55% 0,80% 6%,100% 1%,99% 92%,75% 100%,50% 94%,22% 100%,2% 95%)}
+.strip h1{font:400 clamp(40px,12vw,84px)/.92 Dirt,Impact,sans-serif;letter-spacing:.005em}
+.strip.hit{animation:jolt .5s cubic-bezier(.3,1.6,.5,1)}
+@keyframes jolt{0%{transform:rotate(-2deg)}25%{transform:rotate(-5deg) translate(-8px,6px) scale(.98)}100%{transform:rotate(-2deg)}}
+.smear{position:absolute;left:-4%;top:-14px;width:108%;height:30px;z-index:2;pointer-events:none;opacity:0;
+  background:var(--bordo-hi);clip-path:polygon(0 60%,10% 30%,40% 45%,70% 15%,100% 30%,96% 70%,60% 75%,30% 90%,4% 85%);transform:rotate(-6deg)}
+.smear.on{animation:smear .9s ease-out forwards}
+@keyframes smear{0%{opacity:0;clip-path:polygon(0 60%,0 30%,0 45%,0 15%,0 30%,0 70%,0 75%,0 90%,0 85%)}30%{opacity:.85}100%{opacity:.55}}
+.bat{position:absolute;right:10px;top:118px;width:clamp(170px,40vw,330px);z-index:4;cursor:pointer;border:0;background:none;transform-origin:92% 50%;
+  transform:rotate(-24deg);filter:drop-shadow(4px 10px 8px #000a);-webkit-tap-highlight-color:transparent}
+.bat.swing{animation:swing .55s cubic-bezier(.6,-0.3,.4,1.4)}
+@keyframes swing{0%{transform:rotate(-24deg)}35%{transform:rotate(-70deg)}62%{transform:rotate(14deg)}100%{transform:rotate(-24deg)}}
+.hits{font:700 22px/1.1 Hand,cursive;color:var(--botya);margin:18px 0 0;min-height:26px}
+.hero .lead{margin-top:18px}
+@media (min-width:760px){.bat{top:150px;right:-30px}}
+
+/* записки Боти */
+.botya{display:flex;gap:12px;align-items:flex-start;margin:26px 0 6px;max-width:34em}
+.botya img{width:46px;height:46px;border-radius:50%;background:#d9d2c0;flex:none;border:2px solid var(--botya)}
+.botya p{font:700 23px/1.15 Hand,cursive;color:var(--botya);transform:rotate(-1deg);padding-top:6px}
+
+/* цифры разведки: машинописный протокол на бумаге */
+.paper{position:relative;background:var(--bone);color:var(--ink);padding:30px 22px 26px;box-shadow:0 26px 50px -24px #000;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='p'%3E%3CfeTurbulence baseFrequency='.6' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 .4 0 0 0 0 .33 0 0 0 0 .2 0 0 0 .12 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)'/%3E%3C/svg%3E")}
+.proto{list-style:none}
+.proto li{display:grid;grid-template-columns:minmax(84px,auto) 1fr;gap:14px;align-items:baseline;padding:11px 0;border-bottom:1px dashed #b7a98d}
+.proto li:last-child{border-bottom:0}
+.proto b{font:400 clamp(26px,7vw,34px)/1 Osw,sans-serif;color:var(--bordo);text-align:right;white-space:nowrap}
+.proto span{font-size:16px;line-height:1.45}
+.stamp{position:absolute;right:14px;top:-16px;font:400 18px/1 Dirt,sans-serif;color:var(--bordo);border:3px solid var(--bordo);padding:7px 10px 5px;transform:rotate(6deg);background:var(--bone);opacity:.92}
+
+/* конвейер: шаги вдоль колючки */
+.steps{list-style:none;counter-reset:s;position:relative;margin-top:28px}
+.steps::before{content:"";position:absolute;left:21px;top:8px;bottom:8px;width:4px;
+  background:repeating-linear-gradient(180deg,#8a8178 0 10px,transparent 10px 14px,#8a8178 14px 15px,transparent 15px 26px)}
+.steps>li{position:relative;padding:0 0 46px 62px;counter-increment:s}
+.steps>li::before{content:counter(s);position:absolute;left:0;top:-4px;width:46px;height:46px;display:grid;place-items:center;
+  background:var(--bordo);color:var(--bone);font:400 24px/1 Osw,sans-serif;transform:rotate(-4deg);box-shadow:0 4px 0 #000}
+.steps h3{font:400 clamp(26px,6.5vw,34px)/1.05 Dirt,Impact,sans-serif;color:var(--bone);margin-bottom:10px}
+.tools{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 4px}
+.tools span{font:500 14px/1 Onest,sans-serif;padding:8px 10px;background:var(--wet-2);border:1px solid #4a4036;color:var(--bone)}
+.tools span i{font-style:normal;color:var(--bone-dim);margin-left:6px}
+.shot{margin-top:18px;border:6px solid var(--bone);background:var(--bone);box-shadow:0 20px 40px -20px #000}
+.shot figcaption{color:var(--ink);font:600 14px/1.35 Onest,sans-serif;padding:8px 4px 2px}
+.shot.tilt{transform:rotate(.8deg)}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}
+.pair .shot{margin-top:0}
+
+/* бот */
+.tg{max-width:420px;margin-top:22px;background:#0e1621;border-radius:14px;padding:14px 12px 12px;font:400 15px/1.45 -apple-system,"Segoe UI",Roboto,sans-serif;color:#e9eef3;box-shadow:0 26px 50px -24px #000}
+.tg-head{display:flex;align-items:center;gap:10px;padding:0 4px 12px;border-bottom:1px solid #1f2b38;margin-bottom:12px}
+.tg-ava{width:38px;height:38px;border-radius:50%;background:var(--bordo) url(img/botya.webp) center/120% no-repeat}
+.tg-head b{display:block;font-weight:600}.tg-head small{color:#7f91a4}
+.msg{background:#182533;border-radius:12px 12px 12px 4px;padding:10px 12px;max-width:92%}
+.msg img{border-radius:8px;margin-bottom:8px;width:100%;aspect-ratio:16/10;object-fit:cover;object-position:50% 30%}
+.msg .t{color:#7f91a4;font-size:12px;text-align:right;margin-top:2px}
+.kb{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-top:6px;max-width:92%}
+.kb button{font:500 14px/1.2 inherit;font-family:inherit;color:#e9eef3;background:#253546;border:0;border-radius:8px;padding:11px 4px;cursor:pointer}
+.kb button:active{background:#33475d}
+.kb button[disabled]{opacity:.4;cursor:default}
+.reply{margin:10px 0 0 auto;background:#2b5278;border-radius:12px 12px 4px 12px;padding:9px 12px;max-width:80%;width:fit-content}
+.bot2{margin-top:8px}
+.stat-line{margin-top:18px;color:var(--bone-dim);font-size:15px}
+
+/* кладбище версий */
+.graves{display:grid;gap:14px;margin-top:22px}
+.grave{background:var(--wet-2);border:1px solid #3a322a;padding:16px 14px}
+.grave h3{font-size:17px;margin-bottom:10px}
+.vers{display:flex;flex-wrap:wrap;gap:6px}
+.vers s{font:400 16px/1 Osw,sans-serif;color:#8a7f72;padding:7px 8px;border:1px solid #4a4036;text-decoration-color:var(--bordo-hi);text-decoration-thickness:2px}
+.vers b{font:400 16px/1 Osw,sans-serif;color:var(--bone);background:var(--bordo);padding:8px 10px;transform:rotate(-3deg)}
+.grave p{margin-top:10px;font-size:15px;color:var(--bone-dim)}
+.passport{display:grid;grid-template-columns:44% 1fr;gap:18px;align-items:center;margin-top:18px}
+.passport .shot{margin-top:0}
+.passport .botya{margin:0;flex-direction:column}
+.fail{display:grid;grid-template-columns:120px 1fr;gap:16px;align-items:center;margin-top:22px}
+.fail img{border:5px solid var(--bone);transform:rotate(-2deg)}
+
+/* форматы */
+.covers{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:20px}
+.covers figure{background:var(--bone);padding:4px 4px 0}
+.covers figcaption{color:var(--ink);font:600 12px/1.25 Onest,sans-serif;padding:6px 2px 6px}
+@media (max-width:560px){.covers{grid-template-columns:1fr 1fr}}
+
+/* деньги */
+.money{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
+.money div{border-top:4px solid var(--bordo);padding-top:10px}
+.money b{display:block;font:400 clamp(30px,8vw,44px)/1 Osw,sans-serif;color:var(--bone)}
+.money span{font-size:15px;color:var(--bone-dim);line-height:1.4;display:block;margin-top:6px}
+
+/* забрать */
+.kit ol{padding-left:0;list-style:none;counter-reset:k}
+.kit ol li{counter-increment:k;position:relative;padding:10px 0 10px 40px;border-bottom:1px dashed #b7a98d;font-size:16px;line-height:1.5}
+.kit ol li:last-child{border-bottom:0}
+.kit ol li::before{content:counter(k);position:absolute;left:0;top:9px;font:400 26px/1 Osw,sans-serif;color:var(--bordo)}
+.kit h3{color:var(--ink);font:400 30px/1 Dirt,Impact,sans-serif;margin-bottom:12px}
+.kit .svc{margin-top:18px;font-size:15px;line-height:1.55}
+.kit .svc a{color:var(--bordo);font-weight:600}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.btn{font:400 22px/1 Dirt,Impact,sans-serif;padding:14px 18px 12px;border:0;cursor:pointer;background:var(--bordo);color:var(--bone)}
+.btn.alt{background:var(--ink);color:var(--bone)}
+.btn:active{transform:translateY(2px)}
+.copied{font:700 21px/1 Hand,cursive;color:var(--bordo);align-self:center;min-height:21px}
+
+footer.wrap{padding-top:64px;padding-bottom:60px}
+footer .botya{margin-top:0}
+
+@media (prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<div class="top"><span><b>Вайб-апокалипсис</b>, кухня для своих</span><a href="#kit">Набор</a></div>
+
+<header class="wrap hero">
+  <div class="hero-pic">
+    <i class="nail n1"></i><i class="nail n2"></i><i class="nail n3"></i><i class="nail n4"></i>
+    <img src="img/cover.webp" width="1400" height="560" alt="Владимир в образе Нигана с битой и робот Ботя на фоне Дворцовой площади">
+  </div>
+  <div class="strip" id="strip"><div class="smear" id="smear"></div><h1>Кухня<br>роликов</h1></div>
+  <button class="bat" id="bat" aria-label="Ударить битой">
+    <svg viewBox="0 0 340 60" width="100%" aria-hidden="true">
+      <defs>
+        <linearGradient id="wood" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d8a96a"/><stop offset=".45" stop-color="#a8713a"/><stop offset="1" stop-color="#5e3a1a"/></linearGradient>
+      </defs>
+      <path d="M8 30c0-6 4-9 10-9h6c40-2 90-4 140-8 50-5 110-8 150-6 14 1 22 9 22 23s-8 22-22 23c-40 2-100-1-150-6-50-4-100-6-140-8h-6c-6 0-10-3-10-9z" fill="url(#wood)"/>
+      <rect x="2" y="21" width="12" height="18" rx="4" fill="#3b2412"/>
+      <g fill="none" stroke="#9aa0a6" stroke-width="2.2" stroke-linecap="round">
+        <path d="M170 10l14 42M196 8l14 46M222 6l14 48M248 5l14 50M274 5l14 50M300 6l14 48M322 9l10 40"/>
+        <path d="M160 34c40 6 120 6 175-2M160 24c50-4 120-6 176-1"/>
+      </g>
+      <g stroke="#c4c9ce" stroke-width="2" stroke-linecap="round">
+        <path d="M184 16l-6-6M210 18l7-7M236 46l-6 7M262 14l6-7M288 46l7 6M314 16l7-6M200 44l-7 6M276 18l-7-7"/>
+      </g>
+      <path d="M40 24c40-1 80-3 120-6" stroke="#f3d3a0" stroke-width="2" opacity=".5" fill="none"/>
+    </svg>
+  </button>
+  <p class="hits" id="hits" aria-live="polite"></p>
+  <p class="lead">Нейросети, Питер после апокалипсиса и Ниган с битой. Здесь показано, на чём собраны ролики, сколько раз их переписывали и с чего начать самому. Внизу набор, его можно забрать.</p>
+</header>
+
+<main>
+
+<section class="wrap" id="who">
+  <h2>Кто в кадре</h2>
+  <p>Владимир в образе Нигана: чёрная косуха, бордовый шарф, бита Люсиль с колючкой. Рядом Ботя, старый ЭЛТ-монитор с синей изолентой. Ниган объясняет, Ботя спорит и врёт уверенным голосом.</p>
+  <p>Чтобы герой выглядел одинаково в сотне кадров, у каждого есть паспорт: 24 эмоции у Нигана, 32 у Боти. Нейросеть получает не «нарисуй злого мужика», а конкретную карточку «прищурился, знал заранее».</p>
+</section>
+<div class="wide">
+  <figure class="shot" style="margin-top:22px"><img src="img/emotions.webp" width="1400" height="670" loading="lazy" alt="Таблица эмоций Нигана: ухмылка, ржёт, орёт от восторга, офигел и другие"><figcaption>Часть паспорта эмоций. Каждая отрисована и проверена глазами.</figcaption></figure>
+</div>
+<div class="wrap">
+  <figure class="shot" style="margin-top:18px"><img src="img/map.webp" width="1400" height="484" loading="lazy" alt="Карта персонажа: Ниган в полный рост с четырёх сторон и шесть ракурсов лица"><figcaption>Карта персонажа: с четырёх сторон и шесть ракурсов лица</figcaption></figure>
+  <div class="passport">
+    <figure class="shot tilt"><img src="img/botya.webp" width="900" height="900" loading="lazy" alt="Ботя: ЭЛТ-монитор с трещиной и синей изолентой, хитро улыбается"><figcaption>Ботя, паспорт</figcaption></figure>
+    <div class="botya"><p>Мои 32 эмоции рисовали дольше, чем его 24. Я сложный.</p></div>
+  </div>
+</div>
+
+<section class="wrap" id="research">
+  <h2>Сначала разведка</h2>
+  <p class="lead">Первый ролик сняли после того, как пересмотрели почти полторы тысячи чужих. Скрипты сами собирают ленты, качают ролики, режут на кадры и делают расшифровки.</p>
+  <div class="paper" style="margin-top:26px">
+    <span class="stamp">Сов. секретно</span>
+    <ul class="proto">
+      <li><b>1454</b><span>ролика русской ниши про нейросети собрали и прогнали через фильтр, 550 оставили</span></li>
+      <li><b>421</b><span>рилс про бизнес-темы и 51 расшифровка, чтобы выбрать нишу</span></li>
+      <li><b>100</b><span>роликов одного сильного автора разложили на листы кадров</span></li>
+      <li><b>50</b><span>роликов продюсера с медианой 13 тыс. просмотров разобрали по приёмам</span></li>
+      <li><b>60</b><span>англоязычных разборов: 30 авторов по 2 ролика</span></li>
+      <li><b>3800</b><span>кадров покадрового разбора 20 роликов ниши</span></li>
+      <li><b>256</b><span>своих старых статей с Дзена, чтобы ролики говорили голосом автора, а не нейросети</span></li>
+      <li><b>72</b><span>автора в утреннем радаре тем, обновляется каждый день</span></li>
+    </ul>
+  </div>
+  <div class="botya"><img src="img/botya.webp" alt=""><p>Что именно нашли, тут не написано. Рецепт у повара, на кухню пустили посмотреть.</p></div>
+</section>
+
+<section class="wrap" id="pipeline">
+  <h2>Как собирается ролик</h2>
+  <p class="lead">Девять шагов от темы до публикации. Почти всё делают скрипты и нейросети, человек выбирает и бракует.</p>
+
+  <ol class="steps">
+    <li>
+      <h3>Тема</h3>
+      <p>В 07:00 радар просматривает свежие ролики 72 авторов и предлагает кандидатов на 4 слота дня. В 10:00 в Телеграме приходит список, тема выбирается кнопкой «беру».</p>
+      <div class="tools"><span>Scrape Creators<i>Instagram, TikTok, YouTube</i></span><span>VK API</span><span>faster-whisper<i>расшифровки</i></span><span>yt-dlp</span></div>
+    </li>
+    <li>
+      <h3>Сценарий</h3>
+      <p>Пишет Claude, по очереди в семи ролях: разведчик, драматург, диалогист, автор хука, тупой зритель, критик, раскадровщик. Сверху лежат 44 правила голоса автора и 35 правил, каждое из которых стоило одного переделанного ролика.</p>
+      <div class="tools"><span>Claude</span><span>свод правил голоса</span><span>правила сценария</span></div>
+    </li>
+    <li>
+      <h3>Тупой зритель</h3>
+      <p>Отдельный агент читает сценарий как человек, который ничего не знает о нейросетях, и отмечает, где он потерялся. Пока он путается, кадры не рисуются. Было 15 таких прогонов, в одном ролике до 11 подряд.</p>
+    </li>
+    <li>
+      <h3>Согласование</h3>
+      <p>Сценарий приходит в Телеграм страницей: реплики, роль каждой фразы, график «качелей» по эмоциям. К любой реплике можно оставить комментарий и одной кнопкой скопировать все правки обратно. Новая версия собирается новым файлом, старые не затираются.</p>
+      <div class="pair">
+        <figure class="shot"><img src="img/scr_comments.webp" width="860" height="1720" loading="lazy" alt="Страница сценария с полями комментариев и кнопкой «Скопировать комментарии»"><figcaption>Сценарий с комментариями</figcaption></figure>
+        <figure class="shot tilt"><img src="img/scr_swing.webp" width="860" height="1720" loading="lazy" alt="Страница сценария с цифрами по длительности и графиком качелей"><figcaption>Хронометраж и качели</figcaption></figure>
+      </div>
+    </li>
+    <li>
+      <h3>Кадры</h3>
+      <p>Картинки рисует Nano Banana 2 через шлюз KIE.AI, один кадр 2K стоит около 3 центов. Каждый кадр проверяется по чеклисту примерно из 130 пунктов: рука Боти не превратилась в шланг, на задней крышке монитора нет чужих надписей.</p>
+      <div class="tools"><span>Nano Banana 2</span><span>KIE.AI<i>один ключ на все модели</i></span><span>пробовали GPT Image, Flux, Seedream</span></div>
+      <figure class="shot"><img src="img/sheet.webp" width="1400" height="968" loading="lazy" alt="Контактный лист ролика: два десятка кадров с плашками"><figcaption>Контактный лист: весь ролик на одном экране перед рендером</figcaption></figure>
+    </li>
+    <li>
+      <h3>Видео</h3>
+      <p>Живой Ниган снимается в Grok Imagine. До этого сравнили 14 моделей по цене: 50-секундный ролик с запасом на брак стоит от 1,2 доллара у Grok в 480p до 31,5 у Seedance 2.5. Апскейлы пробовали и выкинули, они замыливают фактуру кожи.</p>
+      <div class="tools"><span>Grok Imagine</span><span>Seedance</span><span>Veo 3.1</span><span>Hailuo</span><span>Kling<i>отказались</i></span></div>
+      <figure class="shot tilt"><img src="img/live.webp" width="900" height="531" loading="lazy" alt="Три кадра живого ролика: Ниган за столом с Ботей на чердаке"><figcaption>Живой формат: три шота одного ролика</figcaption></figure>
+      <p style="margin-top:18px">Для мультиков и 3D отдельная линия: Blender, Mixamo для движений, Hunyuan3D, Meshy и Tripo для моделей.</p>
+      <figure class="shot"><img src="img/studio3d.webp" width="1400" height="1039" loading="lazy" alt="3D-мастерская в Blender, девять ракурсов комнаты"><figcaption>3D-мастерская, 9 ракурсов одной комнаты</figcaption></figure>
+    </li>
+    <li>
+      <h3>Голос и музыка</h3>
+      <p>Озвучка в Gemini TTS: у Нигана один голос, у Боти другой, реплика стоит доли цента. Начинали с ElevenLabs и клонов голоса. Музыку пишет Suno, длинной сюитой на 6 минут, которую потом режут на куски. Мат запикивает свой скрипт.</p>
+      <div class="tools"><span>Gemini TTS</span><span>ElevenLabs<i>было</i></span><span>Suno</span><span>Demucs<i>чистит звук</i></span></div>
+    </li>
+    <li>
+      <h3>Монтаж</h3>
+      <p>Ролик собирается кодом в Remotion: титры, плашки, бита, которая прилетает и бьёт по ключевому слову. ffmpeg режет, OpenCV ищет склейки и лица в кадре. На приёмке скрипт меряет громкость (−14 LUFS) и пики, а потом собирает контактный лист.</p>
+      <div class="tools"><span>Remotion</span><span>ffmpeg</span><span>OpenCV</span><span>скрипт приёмки</span></div>
+    </li>
+    <li>
+      <h3>Выкладка</h3>
+      <p>Instagram через своё приложение Meta и Graph API, Телеграм через бота, ВК через робота в браузере. TikTok руками с телефона. За 20 минут до выхода бот спрашивает, выпускать ли.</p>
+      <div class="tools"><span>Instagram Graph API</span><span>Telegram Bot API</span><span>Playwright<i>для ВК</i></span><span>Планировщик Windows</span></div>
+    </li>
+  </ol>
+</section>
+
+<section class="wrap" id="bot">
+  <h2>Бот с кнопками</h2>
+  <p>Ролик ставится в очередь, а за 20 минут до выхода в Телеграм приходит карточка. Три кнопки. Если молчать, ролик выходит сам. Опоздал с ответом меньше чем на час, выходит сразу; больше, бот переспрашивает.</p>
+  <div class="tg" aria-label="Пример карточки бота, кнопки можно нажать">
+    <div class="tg-head"><div class="tg-ava"></div><div><b>Вайб-апокалипсис</b><small>бот</small></div></div>
+    <div class="msg"><img src="img/c_zombie.webp" alt="Обложка ролика «Любимый зомби из 2 фото»" loading="lazy">
+      Через 20 минут выходит «Любимый зомби из 2 фото».<br>Instagram, Телеграм, ВК. 18:00.
+      <div class="t">17:40</div></div>
+    <div class="kb" id="kb"><button data-a="go">Выпустить</button><button data-a="hour">+1 час</button><button data-a="off">Снять</button></div>
+    <div id="chat"></div>
+  </div>
+  <p class="stat-line">По журналу бота: 65 событий, 8 раз ролик сняли с выхода, 7 раз перенесли. Перед запуском бота прогнали 29 сценариев дня в симуляции.</p>
+</section>
+
+<section class="wrap" id="versions">
+  <h2>Кладбище версий</h2>
+  <p class="lead">Сценарий с первого раза не проходит никогда. Обычно 3–5 версий, каждая новым файлом.</p>
+  <div class="graves">
+    <div class="grave"><h3>«Сделай вирусно»</h3><div class="vers"><s>v1</s><s>v2</s><s>v3</s><s>v4</s><s>v5</s><s>v6</s><s>v7</s><s>v8</s><s>v9</s><b>v10</b></div><p>Рекорд. На августовском отсмотре его забраковали целиком.</p></div>
+    <div class="grave"><h3>Посты канала</h3><div class="vers"><s>v1</s><s>v2</s><s>v3</s><s>…</s><s>v17</s><s>v18</s><b>v19</b></div><p>Девятнадцать заходов на тексты для Телеграма.</p></div>
+    <div class="grave"><h3>Закреп «Кто я»</h3><div class="vers"><s>v1</s><s>v2</s><s>v3</s><s>v4</s><s>v5</s><b>v6</b></div><p>Самый просматриваемый ролик в Instagram.</p></div>
+  </div>
+  <div class="fail">
+    <img src="img/fail_spoon.webp" width="768" height="1376" loading="lazy" alt="Брак: Ботя красный от злости держит ложку вместо микрофона">
+    <div><h3>Ложка вместо микрофона</h3><p class="muted">Нейросеть так решила. Такие кадры складываются в журнал факапов: там уже около 196 случаев и 73 кадра брака. Каждый случай превращается в правило, чтобы не повторился.</p></div>
+  </div>
+  <div class="botya"><img src="img/botya.webp" alt=""><p>Ложка была смешнее. Меня не послушали.</p></div>
+</section>
+
+<section class="wrap" id="formats">
+  <h2>Что выходит</h2>
+  <p>31 ролик и 83 публикации в Instagram, Телеграме, ВК и TikTok. Форматы разные: комикс, пластилин, 3D, живой фотореал. Стиль подбирается под тему ролика.</p>
+</section>
+<div class="wide">
+  <div class="covers">
+    <figure><img src="img/c_karpati.webp" width="900" height="1600" loading="lazy" alt="Обложка «Круче приёма из OpenAI»"><figcaption>Комикс</figcaption></figure>
+    <figure><img src="img/c_3d.webp" width="900" height="1600" loading="lazy" alt="Обложка «Герой за ночь, бесплатно»"><figcaption>Про 3D-героя</figcaption></figure>
+    <figure><img src="img/c_plast.webp" width="900" height="1600" loading="lazy" alt="Обложка в стиле пластилина: Ниган за ноутбуком"><figcaption>Пластилин</figcaption></figure>
+    <figure><img src="img/c_zombie.webp" width="900" height="1600" loading="lazy" alt="Обложка «Любимый зомби из 2 фото»"><figcaption>Комикс</figcaption></figure>
+  </div>
+</div>
+
+<section class="wrap" id="money">
+  <h2>Сколько стоит</h2>
+  <p>Дороже всего время на правки. Генерация обходится дешевле кофе.</p>
+  <div class="money">
+    <div><b>~$1,5</b><span>комикс-ролик целиком, 97% цены это кадры</span></div>
+    <div><b>~$0,9</b><span>11 живых клипов в Grok 480p на один ролик</span></div>
+    <div><b>~$21</b><span>генерации по журналу расходов с 16 августа по 26 сентября</span></div>
+    <div><b>0,26</b><span>кредита KIE за одну озвученную реплику</span></div>
+  </div>
+</section>
+
+<section class="wrap kit" id="kit">
+  <h2>Забрать набор</h2>
+  <p class="lead">С чего начать самому, без нашей горы скриптов. Хватит браузера и одного ключа.</p>
+  <div class="paper" style="margin-top:24px" id="kittext">
+    <h3>Первый ролик за выходные</h3>
+    <ol>
+      <li>Придумай героя и сделай ему паспорт: лицо с четырёх сторон и 6–8 эмоций в одном стиле. Дальше все кадры рисуй только с этим паспортом.</li>
+      <li>Посмотри 30–50 роликов в своей нише. Выпиши первые фразы тех, что залетели. Это твоя библиотека хуков.</li>
+      <li>Сценарий на 30–60 секунд. Первый кадр сразу действие, польза внутри ролика, в конце просьба сохранить.</li>
+      <li>Отдай сценарий нейросети с ролью «человек не в теме, где ты потерялся?». Правь, пока не перестанет теряться.</li>
+      <li>Кадры в Nano Banana, оживление в Grok Imagine или Seedance, голос в Gemini TTS.</li>
+      <li>Монтаж: для старта хватит CapCut. Титры крупно, ключевое слово выделяй цветом.</li>
+      <li>Выкладывай каждый день в одно время. Каждую правку записывай как правило «было → стало», чтобы не наступать второй раз.</li>
+    </ol>
+    <p class="svc"><b>Сервисы:</b> <a href="https://kie.ai" target="_blank" rel="noopener">kie.ai</a> (картинки, видео, голос и музыка по одному ключу), <a href="https://grok.com/imagine" target="_blank" rel="noopener">Grok Imagine</a>, <a href="https://aistudio.google.com" target="_blank" rel="noopener">Google AI Studio</a> (Gemini TTS), <a href="https://suno.com" target="_blank" rel="noopener">Suno</a>, <a href="https://claude.ai" target="_blank" rel="noopener">Claude</a> (сценарии), <a href="https://www.capcut.com" target="_blank" rel="noopener">CapCut</a>.</p>
+    <div class="btns"><button class="btn" id="copy">Скопировать</button><button class="btn alt" id="dl">Скачать .txt</button><span class="copied" id="copied" aria-live="polite"></span></div>
+  </div>
+</section>
+
+</main>
+
+<footer class="wrap">
+  <div class="botya"><img src="img/botya.webp" alt=""><p>Ссылку дальше не пересылай. Люсиль всё видит, а я всё записываю.</p></div>
+  <p class="muted" style="margin-top:16px;font-size:14px">Вайб-апокалипсис, 2026. Ролики в Телеграме: <a href="https://t.me/vibeapocalypse" target="_blank" rel="noopener">t.me/vibeapocalypse</a></p>
+</footer>
+
+<script>
+// Люсиль: удар при загрузке и по нажатию
+const bat=document.getElementById('bat'),strip=document.getElementById('strip'),smear=document.getElementById('smear'),hits=document.getElementById('hits');
+const lines=['','Ну вот. Довольна?','Плашка держится на гвоздях. Пока.','Ботя спрятался за шкаф.','Хватит, это VIP-страница, а не тир.','Ладно, ещё разок.','Люсиль устала. Ниган нет.'];
+let n=0;
+function hit(count){
+  bat.classList.remove('swing');strip.classList.remove('hit');smear.classList.remove('on');void bat.offsetWidth;
+  bat.classList.add('swing');
+  setTimeout(()=>{strip.classList.add('hit');smear.classList.add('on');if(navigator.vibrate)navigator.vibrate(30)},330);
+  if(count){n++;hits.textContent=n<lines.length?lines[n]:'Ударов Люсиль: '+n+'. Ботя ведёт счёт.'}
+}
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches)setTimeout(()=>hit(false),500);
+bat.addEventListener('click',()=>hit(true));
+
+// бот с кнопками
+const kb=document.getElementById('kb'),chat=document.getElementById('chat');
+const ans={go:['Выпустить','Выпускаю. Через минуту в трёх соцсетях.'],hour:['+1 час','Перенёс на 19:00. Напомню в 18:40.'],off:['Снять','Снял. Ролик лежит в очереди, никто не видел.']};
+kb.addEventListener('click',e=>{
+  const a=e.target.dataset.a;if(!a)return;
+  kb.querySelectorAll('button').forEach(b=>b.disabled=true);
+  chat.innerHTML='<div class="reply">'+ans[a][0]+'</div>';
+  setTimeout(()=>{chat.insertAdjacentHTML('beforeend','<div class="msg bot2">'+ans[a][1]+'<div class="t">17:41</div></div>');
+    setTimeout(()=>kb.querySelectorAll('button').forEach(b=>b.disabled=false),900)},600);
+});
+
+// набор: скопировать и скачать
+const kitText=()=>{
+  const k=document.getElementById('kittext');
+  const items=[...k.querySelectorAll('ol li')].map((li,i)=>(i+1)+'. '+li.textContent.trim());
+  return 'Первый ролик за выходные\n\n'+items.join('\n\n')+'\n\n'+k.querySelector('.svc').textContent.trim()+'\n\nkie.ai, grok.com/imagine, aistudio.google.com, suno.com, claude.ai, capcut.com\n';
+};
+const copied=document.getElementById('copied');
+document.getElementById('copy').addEventListener('click',async()=>{
+  try{await navigator.clipboard.writeText(kitText());copied.textContent='Скопировано'}
+  catch(e){copied.textContent='Не вышло. Нажми «Скачать .txt»'}
+});
+document.getElementById('dl').addEventListener('click',()=>{
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([kitText()],{type:'text/plain;charset=utf-8'}));
+  a.download='первый-ролик-набор.txt';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),2000);
+  copied.textContent='Скачано';
+});
+</script>
+</body>
+</html>
